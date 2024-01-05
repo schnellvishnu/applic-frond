@@ -90,10 +90,11 @@ function LoginCheck() {
 }
      }  
      var headfield=
-     <h2><pre>        Track & Trace Login</pre></h2>
+     <h2><pre> <font face="times new roman" size="6">                 Track & Trace Login</font></pre></h2>
        var usernameFieldWidget = <input
              type="text"
              className="form-control"
+           
              onChange={(e) => setUsername(e.target.value)}
            /> 
    
@@ -109,7 +110,7 @@ function LoginCheck() {
     <>
           
     {/* {selectedDIV} */}
-  <div className='head'>
+  <div className='head' >
     <div className='full'>
 
 
@@ -130,13 +131,13 @@ function LoginCheck() {
   <table class="table table-borderless productionOrderReportSearchTable" id="loginReportSearchTableID">
         <tbody>
               <tr>
-                  <td class="productionOrderReportSearchTD">Email</td>
+                  <td class="emailid">Email</td>
                     <td class="productionOrderReportSearchTD">
                           {usernameFieldWidget}
                     </td>
               </tr>
               <tr>
-                    <td class="productionOrderReportSearchTD">Password</td>
+                    <td class="passwordid">Password</td>
                     <td class="productionOrderReportSearchTD">
                           {passwordFieldWidget}
                     </td>

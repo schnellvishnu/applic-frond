@@ -12,7 +12,7 @@ import { RiInsertRowTop } from 'react-icons/ri';
 import {MdPreview} from 'react-icons/md'
 import Navebar from '../../Navigation/Navebar';
 
-function PrinterDataGrid(props) {
+function Scannerview(props) {
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -22,7 +22,12 @@ function PrinterDataGrid(props) {
   const [userDataRows, setUserDataRows] = useState([]);
   const[viewbtnmode,setViewBtnmode]=useState("")
   const[viewbtntext,setViewBtntext]=useState("")
-                
+  const[id,setId]=useState("")
+  const[grade,setGrade]=useState("");
+  const[serialnmber,SetNumber]=useState("")
+  const[gtin,setGtin]=useState("")
+  const[gradevalue,setGradevalue]=useState("");
+  const[numbervalue,setNumbervalue]=useState("")             
   ///   For navigate function
   const navigate = useNavigate();
                     
@@ -38,16 +43,14 @@ function PrinterDataGrid(props) {
   //alert(window.localStorage.getItem('password'));
   var index=1;
   let userDataColumns =[
-                      {field:'id',headerName:'Id',width:100,headerClassName: "MuiDataGrid-columnHeaders",},
-                      {field:'processordernumber',headerName:'Processordernumber',width:300,headerClassName: "MuiDataGrid-columnHeaders",},
-                      {field:'gtin',headerName:'Gtin',width:200,headerClassName: "MuiDataGrid-columnHeaders",},
-                      {field:'expiration_date',headerName:'Expiration_date',width:200,headerClassName: "MuiDataGrid-columnHeaders",},
-                      {field:'lot',headerName:' Lot',width:160,headerClassName: "MuiDataGrid-columnHeaders",},
-                      {field:'type',headerName:'Printing Type',width:160,headerClassName: "MuiDataGrid-columnHeaders",},
-                      {field:'status',headerName:'Status',width:160,headerClassName: "MuiDataGrid-columnHeaders",}, 
-                    {
-                        field: 'edit',
-                        headerName: 'View',
+                      {field:'id',headerName:'Id',width:200,headerClassName: "MuiDataGrid-columnHeaders",},
+                      {field:'gtin',headerName:'Gtin',width:300,headerClassName: "MuiDataGrid-columnHeaders",},
+                      {field:'serialnumber',headerName:'SerialNumber',width:400,headerClassName: "MuiDataGrid-columnHeaders",},
+                      {field:'grade',headerName:'Grade',width:200,headerClassName: "MuiDataGrid-columnHeaders",},
+                      {field:'status',headerName:'Status',width:200,headerClassName: "MuiDataGrid-columnHeaders",},
+                      {
+                        field: 'rework',
+                        headerName: 'Rework',
                         width:300,
                         headerClassName: "MuiDataGrid-columnHeaders",
                         sortable: false,
@@ -67,7 +70,7 @@ function PrinterDataGrid(props) {
                             //alert(thisRow.name);
                             // window.localStorage.setItem("shippoEditID",thisRow.id);
                  
-                            navigate("/printerpool/edit/"+ thisRow.id)
+                            navigate("/scannerrework/"+thisRow.serialnumber+"/"+ thisRow.id)
                     
                             // setToLocalStorage(
                             //   thisRow.id,
@@ -95,19 +98,20 @@ function PrinterDataGrid(props) {
   
                               //alert(currentUserrole);
                               // alert(thisRow2.status)
-                              if(thisRow2.status === "Printed" ) {
+                              // if(thisRow2.status === "Printed" ) {
                                 return <button
                                   className="btn btn-success" 
-                                  disabled = "true"
+                                  // disabled = "true"
                                   // disabled = {viewbtnmode}
                                   onClick={onClick}><MdPreview size={23}/></button>;
-                              }
-                              else if(thisRow2.status === "Not Print") {
+                              // }
+                              // else if(thisRow2.status === "Not Print") {
+                             
                                 return <button
                                   className="btn btn-success" 
                                  
                                   onClick={onClick}><MdPreview size={23}/></button>;
-                              }
+                              // }
                                 },
                     },
   
@@ -117,88 +121,86 @@ function PrinterDataGrid(props) {
   
                 function createRows(rowDatas){
   
-                    rowDatas.map(rowData =>{                
-                    axios            
-                    .get("http://127.0.0.1:8000/masterapp/productionorder/"+rowData.processordernumber
-                    )       
-                    .then((res2) => {       
-                      setUserDataRows(userDataRows =>[
-                        ...userDataRows,
-                        {
-                          'id':rowData.id,
-                          // 'processordernumber':rowData.processordernumber,
-                        'processordernumber':res2.data[0].process_order_number,
-                          'gtin':rowData.gtin,
-                          'expiration_date':rowData.expiration_date,
-                          'lot':rowData.lot,
-                          'type':rowData.type,
-                          "status":rowData.status,
-                    
-                          // 'hrf':rowData.hrf,
-                          }
-                          // if(rowData.status=="Printed")
-                          // {
-                          // setViewBtnmode(false)
-                          // }
-                        ])                    
-                      })
+                
+                      // axios               
+                      // .get("http://127.0.0.1:8000/masterapp/scannerdata",
+               
+                      // )
+                      //   .then((res)=>{
+                          // alert(res.data.grade)
+                          rowDatas.map(rowData =>{ 
+                          //  res.data.map(element=>{
+//alert(rowData.grade)
+                            var tablejsonvalue = JSON.parse(rowData.grade);
+                            // alert(tablejsonvalue.grade)
+                            setGradevalue(tablejsonvalue.grade)
+                           setNumbervalue(tablejsonvalue.serialnumber)
+                           setUserDataRows(userDataRows =>[
+                            ...userDataRows,
+                            {
+                              'id':rowData.id,
+                              // 'processordernumber':rowData.processordernumber,
+                              
+                              'gtin':rowData.gtin,
+                              'serialnumber':tablejsonvalue.serialnumber,
+                              'grade':tablejsonvalue.grade,
+                              'status':rowData.status,
+    
+                              
+                        
+                              // 'hrf':rowData.hrf,
+                              }
+                              // if(rowData.status=="Printed")
+                              // {
+                              // setViewBtnmode(false)
+                              // }
+                            ]) 
+                          //  alert(element.grade)
+                  
+                        // var tablejsonvalue = JSON.parse(element.grade)
+                        // alert(tablejsonvalue)
+                        //  let temparray=[]
+                        //   tablejsonvalue.map(element => {
+                            
+                        //   });((element)=>{
+                        //     alert(element.grade)
+                        //   })
+                          //  })
+                          //     tablejsonvalue.map((element)=>{
+                          //   alert(element.grade)
+                          // })
+                          //setId(res.data[0].id);
+                          // setNumbervalue(tablejsonvalue.serialnumber);
+                          // alert(tablejsonvalue.grade)
+                        
+                          // setGradevalue(tablejsonvalue.grade)    
+                     
+                      })                   
+                      // })
               
-                    })
+                    // })
                                 
                   }
-//         function createRows(rowDatas) {
-//           //  alert("anu")
-//             // alert(rowDatas.length);
-        
-//             let editButton = <button></button>;  
-        
-//             rowDatas.map(rowData => {
-//               //alert(rowData.id);
-//               setUserDataRows( userDataRows => [
-//                 ...userDataRows,
-//                 {'id':rowData.id,
-//                 // 'processordernumber':rowData.processordernumber,
-// 'processordernumber':rowData.processordernumber,
-// 'gtin':rowData.gtin,
-// 'expiration_date':rowData.expiration_date,
-// 'lot':rowData.lot,
-// 'type':rowData.type,},
-//               ]);
-        
-//             })
-//           }
+
 
   
-        function getData() {
-          
+  function getData()
+    {
+      //alert("hi")
+      axios
+        .get("http://127.0.0.1:8000/masterapp/scannerdata")
+          .then((res)=>{
+     // alert("hi")
+              createRows(res.data);
+      });
+    }
 
-                        axios
-                        .get("http://127.0.0.1:8000/masterapp/printerip/",
-                        )
-
-                        .then((res) => {
-                          // alert(res.data);
-                         
-                        axios
-                        .get("http://127.0.0.1:8000/masterapp/printerip/"+res.data+"/",
-                        )
-                        .then((res1) => {
-                        // alert(res1.data);
-                        
-                          setData(res1.data);
-                          createRows(res1.data);
-                        });
-                      })
-                        //alert("anu");
-                        
-                  }
                           
-            useEffect(() => {
+          useEffect(() => {
                     // alert(window.localStorage.getItem('loggedInUsername'))
                     //console.log('i fire once');
                     // if(window.localStorage.getItem('loggedInUsername') && window.localStorage.getItem('loggedInUserPassword')) {
-                  getData();
-                  
+                    getData();
            
                  
                     //  }
@@ -209,7 +211,7 @@ function PrinterDataGrid(props) {
                    
 
             }, []);
-              function handleDelete(id) {
+      function handleDelete(id) {
                   axios
                     .delete(window.url+`/master/printer/delete/${id}`,
                     {
@@ -225,7 +227,8 @@ function PrinterDataGrid(props) {
                   }
                               
           function CustomToolbar() {
-                    return (
+
+                  return (
                             <GridToolbarContainer>
                               <GridToolbarColumnsButton />
                               <GridToolbarFilterButton />
@@ -246,7 +249,7 @@ function PrinterDataGrid(props) {
               <Box component="main" sx={{ flexGrow: 3, p: 7 }}>
                 <div className="customer">
                   <div  style={{ height: 400, width: '100%'}}>
-                    <h5>PrinterTable</h5>     
+                    <h5>ScannerTable</h5>     
                           {/* <DataGrid rows={userDataRows} columns={userDataColumns} pageSize={10} components={{ Toolbar: CustomToolbar }}/> */}
                     <Box m="20px">
                       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -303,4 +306,4 @@ function PrinterDataGrid(props) {
   )
 }
 
-export default PrinterDataGrid
+export default Scannerview

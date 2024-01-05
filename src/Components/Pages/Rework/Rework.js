@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-import ScannerjobsAfterLoginCheck from './ScannerjobsAfterLoginCheck';
+import ReworkAfterLoginCheck from './ReworkAfterLoginCheck';
 import Loading from '../../Loading';
 import { useNavigate } from "react-router";
 
-const Scanner = () => {
+const Rework = () => {
 
     const [selectedDIV, setSelectedDIV] = useState(<Loading/>);
     const navigate = useNavigate();   
 // alert(window.localStorage.getItem('loggedInUsername'))
     useEffect(() => {     
       if(window.localStorage.getItem('loggedInUsername') != null) {
-        setSelectedDIV(<ScannerjobsAfterLoginCheck/>);
+        setSelectedDIV(<ReworkAfterLoginCheck/>);
       }
       else {
           navigate("/");
@@ -25,4 +25,4 @@ const Scanner = () => {
   )
 }
 
-export default Scanner;
+export default Rework;

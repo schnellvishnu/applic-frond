@@ -6,9 +6,9 @@ function Navebar() {
   var loggedInUserrole=window.localStorage.getItem('loggedInUserrole')
   return (
     <div>
-   <nav class="navbar bg-info" data-bs-theme="dark">
+   <nav class="navbar " data-bs-theme="dark" style={{backgroundColor:"#32525f"}}>
     <div class="container-fluid">
-    <a class="navbar-brand" href="#">Welcome {loggedInUsername}</a>
+    <a class="navbar-brand " href="#">Welcome {loggedInUsername}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

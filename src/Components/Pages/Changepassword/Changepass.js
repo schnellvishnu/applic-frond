@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router";
-import Chnagepasswordview from './Chnagepasswordview';
+import ChangepasswordAfterLoginCheck from './ChangepasswordAfterLoginCheck';
 function Changepass() {
             const navigate = useNavigate();
             const [selectedDIV, setSelectedDIV] = useState("");
@@ -9,7 +9,7 @@ function Changepass() {
                 
                 
                     if(window.localStorage.getItem('loggedInUsername') != null) {
-                            setSelectedDIV(<Chnagepasswordview/>);
+                            setSelectedDIV(<ChangepasswordAfterLoginCheck />);
                     }
                     else {
                             navigate("/");

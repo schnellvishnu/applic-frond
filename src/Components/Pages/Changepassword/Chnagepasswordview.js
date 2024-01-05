@@ -161,19 +161,19 @@ return (
 </td>
 </tr> */}
 <tr>
-<td class="productionOrderReportSearchTD">Password</td>
+<td class="emailid">Password</td>
 <td class="productionOrderReportSearchTD">
 {passwordFieldWidget}
 </td>
 </tr>
 <tr>
-<td class="productionOrderReportSearchTD">New Password</td>
+<td class="passwordid">New Password</td>
 <td class="productionOrderReportSearchTD">
 {newpasswordFieldWidget}
 </td>
 </tr>
 <tr>
-<td class="productionOrderReportSearchTD">Confirm Password</td>
+<td class="passwordid">Confirm Password</td>
 <td class="productionOrderReportSearchTD">
 {confirmpasswordFieldWidget}
 </td>

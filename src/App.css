@@ -23,41 +23,86 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+/* production report styling */
+.productionOrderReportResultTableDIV {
+
+  overflow-y: scroll;
+
+  height: 360px;
+
+  border: 4px solid rgb(8, 6, 6);
+  margin-left: 200px;
+
+ }
+ .productionOrderReportResultTH {
+  border-bottom: 1px solid black;
+  text-align: left;
+  padding: 5px 0px 6px 7px;
+  margin-left: 200px;
+ }
+  
+ .productionOrderReportResultTD {
+  text-align: left;
+  padding: 0px 0px 13px 7px;
+ }
+ #productionreportfullbody{
+  background: linear-gradient(90deg, rgba(50,55,55,1) 6%, rgba(117,150,150,1) 27%, rgba(60,82,98,1) 51%, rgba(43,51,56,1) 67%);
+  width: 100%;
+  color:azure
+ }
+ #productionOrderReportSearchTableID{
+  color:azure
+ }
+ /* production report styling end */
 .dashbord1full{
-  background: radial-gradient(circle, rgba(65,252,195,1) 38%, rgba(90,102,105,1) 89%);
-height: 900px;
-width: 100%;
-position: fixed;
-}
+  background: linear-gradient(90deg, rgba(27,40,40,1) 14%, rgba(1,9,15,1) 25%, rgba(5,19,31,1) 30%, rgba(24,46,65,1) 36%, rgba(17,27,34,1) 51%, rgba(43,51,56,1) 73%, rgba(3,49,78,1) 94%);
+  height: 900px;
+  width: 100%;
+  position: fixed;
+ }
 .inspectiondashfull{
-  background: radial-gradient(circle, rgba(252,135,65,1) 29%, rgba(90,105,92,1) 100%);
+  background: linear-gradient(90deg, rgba(33,51,51,1) 1%, rgba(29,38,38,1) 10%, rgba(23,51,73,1) 16%, rgba(20,46,67,1) 18%, rgba(5,19,31,1) 30%, rgba(29,52,71,1) 53%, rgba(43,51,56,1) 77%, rgba(56,66,73,1) 87%, rgba(54,66,74,1) 97%);
   height: 900px;
   width: 100%;
   position: fixed;
 }
 .Reportdashbord1full{
-  background: radial-gradient(circle, rgba(252,135,65,1) 29%, rgba(90,105,92,1) 100%);
+  background: linear-gradient(90deg, rgba(33,51,51,1) 1%, rgba(29,38,38,1) 10%, rgba(23,51,73,1) 16%, rgba(20,46,67,1) 18%, rgba(5,19,31,1) 30%, rgba(29,52,71,1) 53%, rgba(43,51,56,1) 77%, rgba(56,66,73,1) 87%, rgba(54,66,74,1) 97%);
   height: 900px;
   width: 100%;
   position: fixed;
 }
+.iconssectionreport{
+  margin-left: 350px;
+  margin-top: 230px;
+}
 .btn-btn-danger{
-  width: 20%;
-  height: 160px;
+  width: 23%;
+  height: 180px;
 }
 .iconssection1{
-  margin-left: 300px;
-  margin-top: 150px;
+  margin-left: 330px;
+  margin-top: 130px;
 }
 .iconssection2{
-  margin-left: 300px;
+  margin-left: 330px;
 }
 .inspectioniconssection1{
-  margin-left: 400px;
-  margin-top: 150px;
+  margin-left: 200px;
+  margin-top: 120px;
+}
+.btn-btn-danger1{
+  width: 28%;
+  height: 200px;
+}
+.btn-btn-primary{
+  width: 65%;
+  height: 80px;
+  margin-left: 32px;
+
 }
 .inspectioniconssection2{
-  margin-left: 400px;
+  margin-left: 200px;
 }
 
 
@@ -77,12 +122,165 @@ position: fixed;
   border: 4px solid rgb(51, 74, 72);
   width:100%;
 }
+/* sHIPPING REPORT STYLING */
+#shippingreportbox{
+  margin-right: 40px;
+  width: 100%;
+  height: 750px;
+  border: 4px solid rgb(51, 74, 72); 
+}
+#shippingreportcontent{
+  margin-left: 50px;
+}
+#shippingreportfullcard{
+  width: 100%;
+  height: 1000px; 
+  margin-left: 150px;
+  margin-top: 80px;
+}
+#shippingorderreport{margin-top: -92px;}
+#sourcelocationbox{
+  margin-left: 40px;
+
+  height: 300px;
+  width: 45%;
+  border: 4px solid rgb(51, 74, 72);  
+}
+#destinationlocationbox{
+  margin-left: 620px;
+  margin-top: -300px;
+  height: 300px;
+  width: 45%;
+  border: 4px solid rgb(51, 74, 72);  
+}
+#shipreportpdf{
+  margin-left: 660px;
+}
+#customercardhead{
+  background: linear-gradient(90deg, rgba(81,114,114,1) 6%, rgba(34,41,41,1) 12%, rgba(4,4,4,1) 63%, rgba(26,42,52,1) 80%, rgba(58,99,99,1) 94%);
+}
+/* END OF SHIPPING REPORT STYLING */
+#productionboxbox{
+  width: 90%;
+}
+#printerfullpage{
+  background: linear-gradient(90deg, rgba(126,138,138,1) 6%, rgba(156,155,168,1) 51%, rgba(136,149,158,1) 73%, rgba(99,114,124,1) 94%);
+  color:aliceblue;
+  height: 800px;
+}
+#profilepage{
+  background: linear-gradient(90deg, rgba(126,138,138,1) 6%, rgba(156,155,168,1) 51%, rgba(136,149,158,1) 73%, rgba(99,114,124,1) 94%);
+}
+/* INFORMATIONPAGE STYLING */
+#informationpage{
+  margin-left: 580px;
+  margin-top: 170px;
+  border: 4px solid rgb(51, 74, 72);
+  width: 40%;
+  height: 200px; 
+  animation-name: example;
+  animation-duration: 10s;
+  /* animation-delay: 2s; */
+  position: fixed;
+  animation-iteration-count: infinite;
+ 
+}
 
 
+@keyframes example {
+  0%   {background-color:rgb(70, 133, 77); left:0px; top:0px;}
+  25%  {background-color:rgb(209, 241, 176); left:200px; top:0px;}
+  50%  {background-color:rgb(78, 87, 136); left:200px; top:200px;}
+  75%  {background-color:rgb(68, 113, 109); left:0px; top:200px;}
+  100% {background-color:rgb(76, 136, 163); left:0px; top:0px;}
+}
+#head1{
+  margin-left: 120px;
+  margin-top: 40px;
+  color:brown
+}
+#head2{
+  margin-left: 240px;
+  color: brown
+}
+#informationfullpage{
+  /* background: linear-gradient(90deg, rgba(44,54,42,1) 53%, rgba(102,125,88,1) 73%, rgba(10,11,11,1) 94%); */
+  background-image: url("https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/20541/medicine-banner.jpeg");
+  width: 100%;
+  height: 1200px;
+  margin-top: -400px;
+}
+/* END OF INFORMATION PAGE */
+#loginfullcard{
+  width: 40%;
+  margin-top: 260px;
+  margin-left: 500px;
+  position: fixed;
+  color: #e8e2e2;
+  background-color: #4c0b3f;
+
+}
+.emailid{
+  color: aliceblue;
+}
+.passwordid{
+  color: aliceblue;
+}
+.head{
+  /* background-color: #61dafb; */
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/images1/Medicine-Wallpapers-HD.jpg;");
+  height: 920px;
+  margin-top: -150px;
+
+
+}
+#loadbtn{
+  width: 10%;
+  height:60px;
+  margin-left: -220px;
+  position: fixed;
+  margin-top: 60px;
+}
+#preparebtn{
+  width: 10%;
+  height:60px;
+  margin-left: -300px;
+  margin-top: 160px;
+  position: fixed;
+}
+#stopbtn{
+  width: 10%;
+  height:60px;
+  margin-left: -456px;
+  margin-top: 260px;
+  position: fixed;
+}
+#returnbtn{
+  width: 10%;
+  height:60px;
+  margin-left: -405px;
+  margin-top: -170px;
+  position: fixed; 
+  background-color: #524d05;
+}
+#startprintbtn{
+  width: 18%;
+  height:60px;
+  margin-left: 900px;
+  margin-top: -700px;
+}
+#pausebtn{
+  width: 18%;
+  height:60px;
+  margin-left: 900px;
+  margin-top: -600px;
+}
 .App-link {
   color: #61dafb;
 }
-
+.selectbox{
+  color: black;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

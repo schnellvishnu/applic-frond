@@ -15,10 +15,11 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as htmlToImage from "html-to-image";
 import HighchartsReact from 'highcharts-react-official';
-
+import Navebar from "../../Navigation/Navebar";
 const Productionreport = () => {
  const [data, setData] = useState([]);
  const [tabledark, setTableDark] = useState("");
+ const [batcheg, setBatcheg] = useState([]);
  const [batchNumber, setBatchNumber] = useState("");
  const [productionOrderNumber, setProductionOrderNumber] = useState("");
  const [batchNumberOptionsNew, setBatchNumberOptionsNew] = useState("");
@@ -237,24 +238,29 @@ setPieChartData(
  }
 
  function getBatchNumbers() {
- axios
- .get("http://localhost:8000/reports/ProductionOrderReport/",
- 
- )
- .then((res) => {
- let batchNumberOptionsInitial = "";
- res.data.map(data => {
- optionsNew.push({ value: data.batch_number, label: data.batch_number });
- });
- 
- setBatchNumberOptionsNew(optionsNew);
- });
- }
- 
- useEffect(() => {
- getBatchNumbers();
+    axios
+    .get("http://localhost:8000/reports/ProductionOrderReport/",
+    
+    )
+    .then((res) => {
+        // alert(res)
+        // batcheg.push(res.data)
+    //    let temparray=[]
+    //    temparray.push(res.data)
 
- }, []);
+    let batchNumberOptionsInitial = "";
+res.data.map((data1) => {
+// alert(data1.batch_number)
+    optionsNew.push({ value: data1.batch_number, label: data1.batch_number });
+    });
+    
+    setBatchNumberOptionsNew(optionsNew);
+    });
+    }
+    
+    useEffect(() => {
+    getBatchNumbers();
+    }, []);
 
 
  async function exportReportsToPDF() {
@@ -312,13 +318,14 @@ setPieChartData(
 
  return (
  <>
- <Box sx={{ display: 'flex' }}> 
+ <Navebar/>
+ <Box sx={{ display: 'flex' }} id="productionreportfullbody"> 
         <Box component="main" sx={{ flexGrow: 3, p: 7 }}>
   {/* <Navbar/>  */}
 
  <br/>
 
- <div class="container">
+ <div class="container" >
  <div class="row">
  {/* <div class="col-2">
   <Sidebar /> 
@@ -326,7 +333,10 @@ setPieChartData(
  <div class="col-10">
 
  <div className="d-flex justify-content-between m-2">
- <h2>Production Report</h2>
+ <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Production Report</h2>
  </div>
 
 
@@ -448,7 +458,11 @@ Print Page
  <div class="row">
  <div class="col-6">
  <h5>
- Table
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;Table
  </h5>
  </div>
  <div class="col-6">
